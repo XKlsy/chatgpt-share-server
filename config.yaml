@@ -1,10 +1,10 @@
 database:
   default: # 数据源名称,当不指定数据源时 default 为默认数据源
     type: "mysql" # 数据库类型
-    host: "mysql" # 数据库地址
+    host: "23.224.111.139" # 数据库地址
     port: "3306" # 数据库端口
-    user: "root" # 数据库用户名
-    pass: "123456" # 数据库密码
+    user: "chatgpt-share" # 数据库用户名
+    pass: "Xk1206.." # 数据库密码
     name: "cool" # 数据库名称
     charset: "utf8mb4" # 数据库编码
     timezone: "Asia/Shanghai" # 数据库时区
@@ -38,3 +38,5 @@ modules:
         enable: 1
       log:
         enable: 1
+ASSET_PREFIX: "https://cdn.heucdn.top"
+APIAUTH: "Xklsy12060711..."
