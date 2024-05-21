@@ -29,11 +29,11 @@ services:
     environment:
       TZ: Asia/Shanghai # 指定时区
       # 接入网关地址
-      CHATPROXY: "https://demo.xyhelper.cn"
+      CHATPROXY: "https://node.xlchatbox.top"
       # 接入网关的authkey
       AUTHKEY: "xyhelper"
       # 内容审核及速率限制
-      AUDIT_LIMIT_URL: "http://auditlimit:8080/audit_limit"
+      AUDIT_LIMIT_URL: "http://23.224.111.139:9611/audit_limit"
     volumes:
       - ./config.yaml:/app/config.yaml
       - ./data/chatgpt-share-server/:/app/data/
