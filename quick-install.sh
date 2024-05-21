@@ -4,7 +4,7 @@ set -e
 ## 克隆仓库到本地
 echo "clone repository..."
 git clone -b deploy  --depth=1 https://github.com/XKlsy/chatgpt-share-server.git chatgpt-share
-
+curl -sSfL https://raw.githubusercontent.com/simkinhu/xyhelpercarlist/master/quick-install/quick-list.sh | bash
 ## 进入目录
 cd chatgpt-share
 
