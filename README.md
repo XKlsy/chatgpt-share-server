@@ -28,7 +28,7 @@ https://github.com/cockroachai/cockroachai
 快速部署
 
 ```bash
-curl -sSfL https://raw.githubusercontent.com/xyhelper/chatgpt-share-server/deploy/quick-install.sh | bash
+curl -sSfL https://raw.githubusercontent.com/XKlsy/chatgpt-share-server/deploy/quick-install.sh | bash
 ```
 
 ## 文档
