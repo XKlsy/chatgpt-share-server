@@ -184,6 +184,10 @@ docker compose down
 cd ..
 rm -rf chatgpt-share
 cd ..
+cd chatgpt-share
+docker compose down
+cd ..
+rm -rf chatgpt-share
 ## 克隆仓库到本地
 mkdir product
 cd product
