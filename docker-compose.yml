@@ -29,7 +29,7 @@ services:
     environment:
       TZ: Asia/Shanghai # 指定时区
       # 接入网关地址
-      CHATPROXY: "https://node3.xlchatbox.top"
+      CHATPROXY: "https://node3.xychatai.com"
       # 接入网关的authkey
       AUTHKEY: "xyhelper"
       # 内容审核及速率限制
