@@ -14,17 +14,26 @@ sysctl -p
 
 echo "IPv6 已禁用，并已应用更改。"
 # 进入目录
-cd /root/chatgpt-proxy-node
+if [ -d "/root/chatgpt-proxy-node" ]; then
+    echo "目录存在，执行命令..."
+    
+    # 进入目录
+    cd /root/chatgpt-proxy-node
 
-# 关闭 Docker 容器
-docker compose down
+    # 关闭 Docker Compose 服务
+    docker compose down
 
-# 删除所有 Docker 镜像
-# 退出目录
-cd ..
+    # 删除所有悬空的镜像，即未被任何容器使用的镜像
+    docker image prune -f --filter "dangling=true"
 
-# 删除 chatgpt-proxy-node 文件夹
-rm -rf /root/chatgpt-proxy-node
+    # 退出目录
+    cd ..
+
+    # 删除 chatgpt-proxy-node 文件夹
+    rm -rf /root/chatgpt-proxy-node
+else
+    echo "目录不存在，跳过命令。"
+fi
 CURRENT_DIR=$(
     cd "$(dirname "$0")"
     pwd
@@ -177,18 +186,55 @@ function Install_Compose(){
         fi
     fi
 }
-cd product/chatgpt-share
-docker compose down
-cd ..
-rm -rf chatgpt-share
-cd ..
-cd chatgpt-share
-docker compose down
-cd ..
-rm -rf chatgpt-share
-## 克隆仓库到本地
-mkdir product
-cd product
+
+# 检查 /root/product/chatgpt-share 目录是否存在
+if [ -d "/root/product/chatgpt-share" ]; then
+    echo "目录 /root/product/chatgpt-share 存在，执行命令..."
+    
+    # 进入目录
+    cd /root/product/chatgpt-share
+
+    # 关闭 Docker Compose 服务
+    docker compose down
+
+    # 退出目录到 /root/product
+    cd ..
+
+    # 删除 chatgpt-share 文件夹
+    rm -rf chatgpt-share
+else
+    echo "目录 /root/product/chatgpt-share 不存在，跳过命令。"
+fi
+
+# 检查 /root/chatgpt-share 目录是否存在
+if [ -d "/root/chatgpt-share" ]; then
+    echo "目录 /root/chatgpt-share 存在，执行命令..."
+    
+    # 进入目录
+    cd /root/chatgpt-share
+
+    # 关闭 Docker Compose 服务
+    docker compose down
+
+    # 退出目录到 /root
+    cd ..
+
+    # 删除 chatgpt-share 文件夹
+    rm -rf chatgpt-share
+else
+    echo "目录 /root/chatgpt-share 不存在，跳过命令。"
+fi
+
+# 检查 /root/product 目录是否存在
+if [ -d "/root/product" ]; then
+    echo "目录 /root/product 已存在。进入目录。"
+    cd /root/product
+else
+    echo "目录 /root/product 不存在。创建目录。"
+    mkdir /root/product
+    cd /root/product
+fi
+
 echo "clone repository..."
 git clone -b deploy  --depth=1 https://github.com/XKlsy/chatgpt-share-server.git chatgpt-share
 ## 进入目录
