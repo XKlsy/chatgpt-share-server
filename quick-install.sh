@@ -13,27 +13,6 @@ echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 sysctl -p
 
 echo "IPv6 已禁用，并已应用更改。"
-# 进入目录
-if [ -d "/root/chatgpt-proxy-node" ]; then
-    echo "目录存在，执行命令..."
-    
-    # 进入目录
-    cd /root/chatgpt-proxy-node
-
-    # 关闭 Docker Compose 服务
-    docker compose down
-
-    # 删除所有悬空的镜像，即未被任何容器使用的镜像
-    docker image prune -f --filter "dangling=true"
-
-    # 退出目录
-    cd ..
-
-    # 删除 chatgpt-proxy-node 文件夹
-    rm -rf /root/chatgpt-proxy-node
-else
-    echo "目录不存在，跳过命令。"
-fi
 CURRENT_DIR=$(
     cd "$(dirname "$0")"
     pwd
@@ -224,6 +203,7 @@ if [ -d "/root/chatgpt-share" ]; then
 else
     echo "目录 /root/chatgpt-share 不存在，跳过命令。"
 fi
+docker image prune -f --filter "dangling=true"
 
 # 检查 /root/product 目录是否存在
 if [ -d "/root/product" ]; then
