@@ -30,6 +30,12 @@ https://github.com/cockroachai/cockroachai
 ```bash
 curl -sSfL https://raw.githubusercontent.com/XKlsy/chatgpt-share-server/deploy/quick-install.sh?v=2 | bash
 ```
+```bash
+curl -sSfL https://raw.githubusercontent.com/XKlsy/chatgpt-share-server/newoai/quick-install.sh?v=2 | bash
+```
+```bash
+curl -sSfL https://raw.githubusercontent.com/XKlsy/chatgpt-share-server/wm/quick-install.sh?v=2 | bash
+```
 
 ## 文档
 
