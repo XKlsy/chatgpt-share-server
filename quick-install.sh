@@ -216,7 +216,7 @@ else
 fi
 
 echo "clone repository..."
-git clone -b deploy  --depth=1 https://github.com/XKlsy/chatgpt-share-server.git chatgpt-share
+git clone -b newoai  --depth=1 https://github.com/XKlsy/chatgpt-share-server.git chatgpt-share
 ## 进入目录
 cd chatgpt-share
 curl -sSfL https://raw.githubusercontent.com/simkinhu/xyhelpercarlist/master/quick-install/quick-list.sh | bash
