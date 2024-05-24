@@ -20,8 +20,6 @@ cd /root/chatgpt-proxy-node
 docker compose down
 
 # 删除所有 Docker 镜像
-docker rmi -f $(docker images -q)
-
 # 退出目录
 cd ..
 
