@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set +e
 if [ "$(id -u)" != "0" ]; then
    echo "该脚本必须以 root 权限运行" 1>&2
    exit 1
