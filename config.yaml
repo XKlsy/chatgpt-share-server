@@ -1,11 +1,11 @@
 database:
   default: # 数据源名称,当不指定数据源时 default 为默认数据源
     type: "mysql" # 数据库类型
-    host: "23.224.111.139" # 数据库地址
+    host: "45.204.208.75" # 数据库地址
     port: "3306" # 数据库端口
     user: "chatgpt-share" # 数据库用户名
     pass: "Xk1206.." # 数据库密码
-    name: "cool" # 数据库名称
+    name: "chatgpt-share-test" # 数据库名称
     charset: "utf8mb4" # 数据库编码
     timezone: "Asia/Shanghai" # 数据库时区
     # debug: true # 是否开启调试模式，开启后会打印SQL日志
