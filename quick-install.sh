@@ -170,7 +170,21 @@ function Install_Compose(){
 if [ -d "/root/product/chatgpt-share" ]; then
     echo "目录 /root/product/chatgpt-share 存在，执行命令..."
     
-    # 进入目录
+    # 判断是否存在 /root/product/chatgpt-share/erkai 目录
+    if [ -d "/root/product/chatgpt-share/erkai" ]; then
+        echo "目录 /root/product/chatgpt-share/erkai 存在，停止容器运行..."
+        
+        # 进入 /root/product/chatgpt-share/erkai 目录
+        cd /root/product/chatgpt-share/erkai
+
+        # 关闭 Docker Compose 服务
+        docker compose down
+        
+        # 返回上一级目录
+        cd ..
+    fi
+
+    # 进入 /root/product/chatgpt-share 目录
     cd /root/product/chatgpt-share
 
     # 关闭 Docker Compose 服务
@@ -220,7 +234,9 @@ git clone -b deploy  --depth=1 https://github.com/XKlsy/chatgpt-share-server.git
 ## 进入目录
 cd chatgpt-share
 curl -sSfL https://raw.githubusercontent.com/simkinhu/xyhelpercarlist/master/quick-install/quick-list.sh | bash
-
+cd erkai
+docker compose up -d
+cd ..
 docker compose pull
 docker compose up -d --remove-orphans
 
